@@ -28,6 +28,17 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
+        // Permitir acceso a Swagger UI, API docs y GraphQL/GraphiQL sin token
+        String path = request.getRequestURI();
+        if (path.startsWith("/swagger-ui/") ||
+            path.startsWith("/v3/api-docs") ||
+            path.startsWith("/graphql") ||
+            path.startsWith("/graphiql") ||
+            path.equals("/actuator/health")) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+
         String token = parseJwt(request);
 
         if (token != null && validateJwtToken(token)) {
@@ -59,3 +70,4 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         }
     }
 }
+
