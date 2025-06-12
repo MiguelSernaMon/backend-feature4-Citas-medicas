@@ -30,7 +30,7 @@ server:
     include-exception: false
 
 app:
-  jwtSecret: ${JWT_SECRET}
+  jwtSecret: my-secret-key-compartido-entre-microservicios
 logging:
   level:
     org:

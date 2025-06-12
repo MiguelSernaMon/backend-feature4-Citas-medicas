@@ -28,6 +28,6 @@ server:
 
 app:
   jwtExpirationMs: 86400000
-  jwtSecret: ${JWT_SECRET}
+  jwtSecret: my-secret-key-compartido-entre-microservicios
   api:
     key: "tu-api-key-secreta-compartida-entre-microservicios"
