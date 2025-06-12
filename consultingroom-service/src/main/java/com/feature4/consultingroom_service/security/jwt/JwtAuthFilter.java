@@ -24,10 +24,8 @@ import java.util.ArrayList;
 @Slf4j
 public class JwtAuthFilter extends OncePerRequestFilter {
 
-    @Value("${app.jwtSecret}")
-    private String jwtSecret;
-
     private Key getSigningKey() {
+        String jwtSecret = "my-secret-key-compartido-entre-microservicios";
         return Keys.hmacShaKeyFor(jwtSecret.getBytes());
     }
 

@@ -17,13 +17,11 @@ import java.util.function.Function;
 @Component
 public class JwtTokenUtil {
 
-    @Value("${app.jwtSecret}")
-    private String jwtSecret;
-
     @Value("${app.jwtExpirationMs}")
     private int jwtExpirationMs;
 
     private Key getSigningKey() {
+        String jwtSecret = "my-secret-key-compartido-entre-microservicios";
         return Keys.hmacShaKeyFor(jwtSecret.getBytes());
     }
 
