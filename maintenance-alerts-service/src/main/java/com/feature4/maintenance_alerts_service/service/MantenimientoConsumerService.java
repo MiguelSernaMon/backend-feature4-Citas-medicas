@@ -32,7 +32,7 @@ public class MantenimientoConsumerService {
 
         // Enviar notificación por WebSocket al coordinador específico
         messagingTemplate.convertAndSend(
-                "/topic/notificaciones/",
+                "/topic/notificaciones",
                 notificacion
         );
     }
