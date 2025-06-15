@@ -35,3 +35,7 @@ server:
     include-binding-errors: always
     include-stacktrace: never
     include-exception: false
+
+app:
+  frontend:
+    url: ${FRONTEND_URL}
