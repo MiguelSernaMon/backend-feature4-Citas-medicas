@@ -21,6 +21,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/ws-mantenimiento")
                 .setAllowedOriginPatterns("http://localhost:3000")
+                .setAllowedOriginPatterns("https://maintenance-alerts-service.onrender.com")
                 .withSockJS();
     }
 }

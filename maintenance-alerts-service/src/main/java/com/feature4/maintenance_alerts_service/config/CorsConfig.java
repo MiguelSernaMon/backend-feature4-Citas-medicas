@@ -38,7 +38,7 @@ public class CorsConfig implements WebSocketMessageBrokerConfigurer {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:3000", "http://localhost:8080")
+                        .allowedOrigins("http://localhost:3000", "http://localhost:8080", "https://citasaludfront.vercel.app")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
@@ -53,6 +53,7 @@ public class CorsConfig implements WebSocketMessageBrokerConfigurer {
 
         config.addAllowedOrigin("http://localhost:3000");
         config.addAllowedOrigin("http://localhost:8080");
+        config.addAllowedOrigin("https://citasaludfront.vercel.app");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         config.setAllowCredentials(true);
